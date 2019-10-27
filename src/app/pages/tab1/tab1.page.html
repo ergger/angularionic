@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="danger" >
+    <ion-title>
+      Pendings
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-lists [over]="false"></app-lists>
+  <!--ion-list>
+    <ion-item *ngFor="let list of atenderService.lists" detail (click)="getList(list.id)">
+      <ion-label>{{list.title}}</ion-label>
+      <ion-note *ngIf="list.items.length > 0" slot="end" color="danger">
+        {{list.items.length}} tasks to do!
+      </ion-note>
+    </ion-item>
+  </ion-list-->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button (click)="addList()" color="secondary" >
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

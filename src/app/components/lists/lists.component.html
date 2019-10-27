@@ -1,0 +1,25 @@
+<ion-list>
+  <ion-item-sliding *ngFor="let list of atenderService.lists | filterAccomplished:over">
+      <ion-item-options side="start">
+        <ion-item-option (click)="editList(list)"
+        color="tertiary" expandable>
+        <ion-icon name="create" slot="icon-only"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+      <ion-item detail (click)="getList(list.id)">
+        <ion-label>{{list.title}}</ion-label>
+        <ion-note *ngIf="list.items.length > 0 && getListPending(list) != 0" slot="end" color="danger">
+          tasks to do {{getListPending(list)}} of {{list.items.length}} !
+        </ion-note>
+        <ion-note *ngIf="getListPending(list) == 0" slot="end" color="">
+          no pending tasks
+        </ion-note>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="deleteList(list)"
+        color="tertiary" expandable>
+          <ion-icon name="trash" slot="icon-only"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+  </ion-item-sliding> 
+</ion-list>
